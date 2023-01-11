@@ -11,7 +11,6 @@ import { Signup } from "../pages/Signup";
 import { RealResults } from "../pages/RealResults";
 import { Jobseeker } from "../pages/Jobseeker";
 
-
 export const App = () => {
   const [searchText, setSearchText] = useState();
   const location = useLocation();
@@ -22,7 +21,6 @@ export const App = () => {
       const { data: res } = await axios.get(apiEndPoint);
       setPosts(res);
     };
-    ;
     getPost();
   }, []);
   return (
@@ -39,7 +37,6 @@ export const App = () => {
                 setSearchText={setSearchText}
                 posts={posts}
                 setPosts={setPosts}
-              
               />
             }
           />
@@ -47,40 +44,19 @@ export const App = () => {
           <Route
             path="/home"
             element={
-              <Home searchText={searchText} setSearchText={setSearchText}  posts={posts}
-              setPosts={setPosts} />
+              <Home
+                searchText={searchText}
+                setSearchText={setSearchText}
+                posts={posts}
+                setPosts={setPosts}
+              />
             }
           />
-          <Route
-            path="/jobseeker"
-            element={
-              <Jobseeker />
-            }
-          />
-          <Route
-            path="/prices"
-            element={
-              <Prices />
-            }
-          />
-          <Route
-            path="/real"
-            element={
-              <RealResults />
-            }
-          />
-          <Route
-            path="/Signup"
-            element={
-              <Signup />
-            }
-          />
-           <Route
-            path="/Login"
-            element={
-              <Login />
-            }
-          />
+          <Route path="/jobseeker" element={<Jobseeker />} />
+          <Route path="/prices" element={<Prices />} />
+          <Route path="/real" element={<RealResults />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="*" element={<h1>404 NOT FOUND</h1>} />
           <Route path="/" element={<Navigate to={"/home"} />} />
         </Routes>
