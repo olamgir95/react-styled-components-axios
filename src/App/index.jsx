@@ -5,6 +5,11 @@ import Footer from "../Components/Footer";
 import Home from "../Components/Home";
 import JobSearch from "../Components/JobSearch";
 import Navbar from "../Components/Navbar";
+import { Prices } from "../pages/Prices";
+import { Login } from "../pages/Login";
+import { Signup } from "../pages/Signup";
+import { RealResults } from "../pages/RealResults";
+import { Jobseeker } from "../pages/Jobseeker";
 
 
 export const App = () => {
@@ -44,6 +49,36 @@ export const App = () => {
             element={
               <Home searchText={searchText} setSearchText={setSearchText}  posts={posts}
               setPosts={setPosts} />
+            }
+          />
+          <Route
+            path="/jobseeker"
+            element={
+              <Jobseeker />
+            }
+          />
+          <Route
+            path="/prices"
+            element={
+              <Prices />
+            }
+          />
+          <Route
+            path="/real"
+            element={
+              <RealResults />
+            }
+          />
+          <Route
+            path="/Signup"
+            element={
+              <Signup />
+            }
+          />
+           <Route
+            path="/Login"
+            element={
+              <Login />
             }
           />
           <Route path="*" element={<h1>404 NOT FOUND</h1>} />

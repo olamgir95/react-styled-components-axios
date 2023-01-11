@@ -55,7 +55,7 @@ const Search = styled.div`
 `;
 
 const Buttonn = styled.button`
-:focus {
+  :focus {
     outline: 3px solid #007bff45;
   }
   font-weight: 700;
@@ -94,8 +94,8 @@ const Filter = styled.div`
   max-width: 25%;
   height: 400px;
   background-color: white;
-  border-right: 1px solid #dee2e6!important;
- 
+  border-right: 1px solid #dee2e6 !important;
+
   p {
     display: flex;
     font-size: 12px;
@@ -117,9 +117,9 @@ const Filter = styled.div`
     border: 1px solid #ced4da;
     border-radius: 5px;
     :focus {
-    outline: 3px solid #007bff45;
-    border: 0.7px solid #0069d987;
-  }
+      outline: 3px solid #007bff45;
+      border: 0.7px solid #0069d987;
+    }
   }
   hr {
     margin: 20px;
@@ -129,8 +129,6 @@ const Filter = styled.div`
     align-items: flex-start;
     margin-left: 20px;
     margin-top: 10px;
-  
- 
   }
   .label-control {
     display: flex;
@@ -149,7 +147,7 @@ const Filter = styled.div`
   .resbtn {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-   letter-spacing: 0.2px;
+    letter-spacing: 0.2px;
     top: 330px;
     bottom: 30px;
     font-size: 12px;
@@ -161,17 +159,17 @@ const Filter = styled.div`
   position: relative;
 `;
 const SearchMain = styled.div`
-flex: 1;
+  flex: 1;
   width: 800px;
 `;
-const Title=styled.div`
-padding-top: 30px;
-box-shadow: 0 2px 4px 0 rgb(136 136 136 / 20%);
-font-size: large;
-gap: 10px;
-width: 800px;
-height: 300px;
-`
+const Title = styled.div`
+  padding-top: 30px;
+  box-shadow: 0 2px 4px 0 rgb(136 136 136 / 20%);
+  font-size: large;
+  gap: 10px;
+  width: 800px;
+  height: 300px;
+`;
 const Wrapper = styled.div`
   display: flex;
 `;
@@ -185,5 +183,5 @@ export {
   SearchMain,
   Wrapper,
   InputWrapper,
-  Title
+  Title,
 };

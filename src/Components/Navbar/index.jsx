@@ -8,14 +8,14 @@ import Select from "./Select";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const {pathname} = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
 
   const [showInfo, setShowInfo] = useState(false);
 
   useEffect(() => {
     setShowInfo(false);
-  }, [pathname]);
+  }, [location.pathname]);
 
   const visibleDiv = {
     display: "none",
@@ -35,7 +35,8 @@ const Navbar = () => {
         className={location.pathname.includes("/search") ? "main2" : "yes"}
       >
         <Item className="center">
-          <Item className={location.pathname.includes("/home") ? "not" : "yes"}>
+          <Item className={location.pathname.includes("/home") ? "not" : "yes"}
+          onClick={() => navigate("/jobseeker")}>
             Jobseeker
           </Item>
           <Item>
@@ -44,8 +45,8 @@ const Navbar = () => {
             })}
           </Item>
 
-          <Item>Prices</Item>
-          <Item>Real Results</Item>
+          <Item onClick={() => navigate("/prices")}>Prices</Item>
+          <Item onClick={() => navigate("/real")}>Real Results</Item>
           <Item>
             <Button
               className={
@@ -67,36 +68,35 @@ const Navbar = () => {
         </Item>
         <Item
           className={
-            location.pathname.includes("/search") ? "not item-br" : "yes"
+            location.pathname.includes("/search") ? "yes" : "not item-br"
           }
         >
-          <Link>LOG IN</Link>
+          <Link onClick={() => navigate("/Signup")}>SIGN UP</Link>
         </Item>
         <Item
           className={
-            location.pathname.includes("/search") ? "not item-br" : "yes"
+            location.pathname.includes("/search")
+              ? "yes"
+              : "not item-br"
           }
         >
-          <Link>SIGN UP</Link>
+          <Link onClick={() => navigate("/Login")}>LOG IN</Link>
         </Item>
         <Item
           className={
-            location.pathname.includes("/home") ? "not item-br" : "yes"
+            location.pathname.includes("/home", "/Signup") ? "yes" : "not item-br"
           }
         >
-          <Link>SIGN UP</Link>
+          <Link onClick={() => navigate("/Login")}>LOG IN</Link>
         </Item>
         <Item
           className={
-            location.pathname.includes("/home") ? "not item-br" : "yes"
+            location.pathname.includes("/home") ? "yes" : "not item-br"
           }
         >
-          <Link>LOG IN</Link>
+          <Link onClick={() => navigate("/Signup")}>SIGN UP</Link>
         </Item>
-        <FaTimes
-          className="fatime"
-          onClick={() => setShowInfo(!showInfo)}
-        />
+        <FaTimes className="fatime" onClick={() => setShowInfo(!showInfo)} />
       </Main>
       <FaBars className="faBar" onClick={() => setShowInfo(!showInfo)} />
     </Container>

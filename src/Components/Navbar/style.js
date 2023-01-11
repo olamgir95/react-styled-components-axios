@@ -9,9 +9,9 @@ const Container = styled.div`
     margin: 10px auto;
     padding-bottom: ${({ showInfo }) => showInfo && "280px"};
   }
-  .fatime{
-      display: none;
-    }
+  .fatime {
+    display: none;
+  }
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -25,7 +25,7 @@ const Container = styled.div`
   .main2 {
     width: 70%;
     margin-right: 0;
-    gap: 10px;
+    gap: 15px;
 
     @media only screen and (max-width: 992px) {
       display: flex;
@@ -61,11 +61,11 @@ const Main = styled.div`
     width: 30%;
     left: 110px;
     top: 60px;
-    .fatime{
+    .fatime {
       display: block;
     }
   }
-  
+
   width: 80%;
   display: flex;
   justify-content: right;
@@ -241,9 +241,7 @@ const Item = styled.div`
     }
   }
 `;
-const Login = styled.div`
-
-`;
+const Login = styled.div``;
 const Link = styled.div`
   /* display: flex; */
   font-weight: 600;
@@ -258,7 +256,7 @@ const Link = styled.div`
     gap: 5px;
   }
   @media (max-width: 992px) {
-    margin:0 1.5px;
+    margin: 0 1.5px;
     padding: 0;
   }
 `;
