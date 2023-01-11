@@ -1,22 +1,25 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Home from "../Components/Home";
 import JobSearch from "../Components/JobSearch";
 import Navbar from "../Components/Navbar";
 
+
 export const App = () => {
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState();
   const location = useLocation();
-  axios.interceptors.request.use((request)=>{
-    console.log(request, 'request');
-    request.headers.Authorization='olamgir'
-    return request
-  })
-  axios.interceptors.response.use((res)=>{
-    console.log(res, 'res');
-  })
+  const [posts, setPosts] = useState([]);
+  const apiEndPoint = "https://jsonplaceholder.typicode.com/users";
+  useEffect(() => {
+    const getPost = async () => {
+      const { data: res } = await axios.get(apiEndPoint);
+      setPosts(res);
+    };
+    ;
+    getPost();
+  }, []);
   return (
     <>
       <Navbar location={location} />
@@ -29,6 +32,9 @@ export const App = () => {
               <JobSearch
                 searchText={searchText}
                 setSearchText={setSearchText}
+                posts={posts}
+                setPosts={setPosts}
+              
               />
             }
           />
@@ -36,7 +42,8 @@ export const App = () => {
           <Route
             path="/home"
             element={
-              <Home searchText={searchText} setSearchText={setSearchText} />
+              <Home searchText={searchText} setSearchText={setSearchText}  posts={posts}
+              setPosts={setPosts} />
             }
           />
           <Route path="*" element={<h1>404 NOT FOUND</h1>} />

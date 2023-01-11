@@ -1,4 +1,10 @@
-import styled from "styled-components";
+ 
+import styled, { createslobalstyle } from "styled-components" ;
+
+
+ 
+
+
 
 const Container = styled.div`
   font-family: "Open Sans", sans-serif !important;

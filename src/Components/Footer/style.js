@@ -6,9 +6,11 @@ const Container = styled.div`
   flex-direction: column;
 `;
 const Footer_menu = styled.div`
+flex-wrap: wrap;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   text-align: left;
+  align-items: center;
   gap: 20px;
     color: #024570;
   font-size: 18px;
@@ -16,6 +18,9 @@ const Footer_menu = styled.div`
   text-transform: uppercase;
   background-color: #f3f7fa;
   padding:0.5rem 1rem;
+  @media only  screen and (max-width: 990px) {
+    justify-content: left;
+  }
 `;
 
 const Logo = styled.div`

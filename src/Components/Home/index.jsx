@@ -20,9 +20,16 @@ import search from "../../asset/icons/search.svg";
 import { useNavigate } from "react-router-dom";
 
 
-const Home = ({searchText, setSearchText }) => {
+const Home = ({searchText, setSearchText, posts, setPosts }) => {
   const navigate=useNavigate();
 
+  const onChange = (e) => {
+    const res = posts.filter((vl) =>
+      vl.name.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setPosts(res);
+    setSearchText(e.target.value);
+  };
   console.log(searchText);
   return (
     <Container>
@@ -32,7 +39,7 @@ const Home = ({searchText, setSearchText }) => {
           Looking for <strong className="text-green">Work</strong>?
         </Title>
         <Search>
-          <Input value={searchText} placeholder="Search jobs" onChange={(e) => setSearchText(e.target.value)} />
+          <Input value={searchText} placeholder="Search jobs" onChange={onChange} />
           <Button onClick={()=>navigate('/search')}> Search</Button>
           <Img src={search} />
         </Search>
