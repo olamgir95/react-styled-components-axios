@@ -154,6 +154,9 @@ const Item = styled.div`
   justify-content: right;
   align-items: center;
   gap: 10px;
+  :active{
+color: red !important;
+  }
   .item {
     background-color: #fff;
     position: absolute;
@@ -214,7 +217,7 @@ const Item = styled.div`
       margin-bottom: -15px;
     }
     @media only screen and (max-width: 1200px) {
-      font-size: 13px;
+      font-size: 14px;
       background-color: white;
       color: #585858 !important;
       :hover {

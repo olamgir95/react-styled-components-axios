@@ -4,9 +4,12 @@ import blue2 from "../../asset/imgs/blue2.png";
 import FooterDetail from "../Footer/FooterDetail/data";
 
 import Select from "./Select";
+import { Outlet } from "react-router-dom";
 
 const Footer = () => {
   return (
+    <>
+   
     <Container>
       <Footer_menu>
         {FooterDetail.map((option, index) => {
@@ -18,6 +21,8 @@ const Footer = () => {
         Copyright © 2022 OnlineJobs.ph. All rights reserved.
       </Logo>
     </Container>
+    <Outlet/>
+    </>
   );
 };
 

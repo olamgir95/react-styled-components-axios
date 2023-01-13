@@ -10,7 +10,7 @@ flex-wrap: wrap;
   display: flex;
   justify-content: center;
   text-align: left;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
     color: #024570;
   font-size: 18px;
@@ -41,7 +41,11 @@ const Item = styled.div`
 color:  #024570;
   display: flex;
     flex-direction: column;
-  position: relative;
+  position: sticky;
+  top: -50px;
+  
+
+
 
 
   

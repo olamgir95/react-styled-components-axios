@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 const Select = ({ option }) => {
   const [showInfo, setShowInfo] = useState(false);
   const { data, name } = option;
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     setShowInfo(false);
@@ -27,16 +27,28 @@ const Select = ({ option }) => {
     <Footer_menu>
       <Item onClick={() => setShowInfo(!showInfo)}>
         {name}
-        <img src={showInfo ? up : down} alt="arrow-icon" />
+        {pathname.includes("/home") ? (
+          <img src={showInfo ? up : down} alt="arrow-icon" />
+        ) : (
+          ""
+        )}
 
-        <Item style={showInfo ? visibleDiv : unvisibleDiv}>
+        <Item
+          style={
+            pathname.includes("/home")
+              ? showInfo
+                ? visibleDiv
+                : unvisibleDiv
+              : visibleDiv
+          }
+        >
           {data?.map((item, index) => {
             return (
               <Link key={index}>
                 {item.label === "facebook" ? (
-                  <img alt="arrrr" src={facebook} />
+                  <img alt="ar" src={facebook} />
                 ) : item.label === "twitter" ? (
-                  <img alt="arrrr" src={twitter} />
+                  <img alt="ar" src={twitter} />
                 ) : (
                   item.label
                 )}

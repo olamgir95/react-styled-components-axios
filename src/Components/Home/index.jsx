@@ -14,14 +14,15 @@ import {
   Section,
   Section2,
   Section_main,
-  Button2
+  Button2,
 } from "./style";
 import search from "../../asset/icons/search.svg";
 import { useNavigate } from "react-router-dom";
 
+const Home = ({ searchText, setSearchText, posts, setPosts }) => {
+  const navigate = useNavigate();
 
-const Home = ({searchText, setSearchText, posts, setPosts }) => {
-  const navigate=useNavigate();
+ 
 
   const onChange = (e) => {
     const res = posts.filter((vl) =>
@@ -30,7 +31,7 @@ const Home = ({searchText, setSearchText, posts, setPosts }) => {
     setPosts(res);
     setSearchText(e.target.value);
   };
-  console.log(searchText);
+ 
   return (
     <Container>
       <Section>
@@ -39,8 +40,12 @@ const Home = ({searchText, setSearchText, posts, setPosts }) => {
           Looking for <strong className="text-green">Work</strong>?
         </Title>
         <Search>
-          <Input value={searchText} placeholder="Search jobs" onChange={onChange} />
-          <Button onClick={()=>navigate('/search')}> Search</Button>
+          <Input
+            value={searchText}
+            placeholder="Search jobs"
+            onChange={onChange}
+          />
+          <Button onClick={() => navigate("/search")}> Search</Button>
           <Img src={search} />
         </Search>
       </Section>
@@ -93,7 +98,6 @@ const Home = ({searchText, setSearchText, posts, setPosts }) => {
         <Button2 className="btnsee">See More skills</Button2>
         <a href="">Why?</a>
       </Section2>
-      
     </Container>
   );
 };

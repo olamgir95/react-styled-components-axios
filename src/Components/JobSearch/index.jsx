@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Buttonn,
@@ -13,14 +13,10 @@ import {
   Title,
 } from "./style";
 import search from "../../asset/icons/search.svg";
-import { useLocation, useNavigate } from "react-router-dom";
 
-import { Badge, Button, ButtonGroup } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 
 const JobSearch = ({ searchText, setSearchText, posts, setPosts }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const onChange = (e) => {
     const res2 = posts.filter((vl) =>
       vl.name.toLowerCase().includes(e.target.value.toLowerCase())
@@ -28,7 +24,12 @@ const JobSearch = ({ searchText, setSearchText, posts, setPosts }) => {
     setPosts(res2);
     setSearchText(e.target.value);
   };
-
+  const [state, setState] = useState();
+  useEffect(() => {
+    setTimeout(() => {
+      setState(posts);
+    }, 3000);
+  });
   return (
     <Container>
       <Search>
@@ -79,19 +80,23 @@ const JobSearch = ({ searchText, setSearchText, posts, setPosts }) => {
             <Buttonn className="resbtn">Refine search results</Buttonn>
           </Filter>
           <SearchMain>
-            {posts?.map((posts) => (
-              <Title key={posts.id}>
-                <h1>{posts.name}</h1>
-                <p>{posts.address.street}</p>
-                <ButtonGroup>
-                  <Button>Sales and Marketing</Button>
-                  <Button>Telemarketing</Button>
-                  <Button>Right</Button>
-                  <Button>English</Button>
-                  <Button>Right</Button>
-                </ButtonGroup>
-              </Title>
-            ))}
+            {state ? (
+              state?.map((posts) => (
+                <Title key={posts.id}>
+                  <h1>{posts.name}</h1>
+                  <p>{posts.address.street}</p>
+                  <ButtonGroup>
+                    <Button>Sales and Marketing</Button>
+                    <Button>Telemarketing</Button>
+                    <Button>Right</Button>
+                    <Button>English</Button>
+                    <Button>Right</Button>
+                  </ButtonGroup>
+                </Title>
+              ))
+            ) : (
+              <h1>LOADING...</h1>
+            )}
           </SearchMain>
         </Wrapper>
       </Search>
