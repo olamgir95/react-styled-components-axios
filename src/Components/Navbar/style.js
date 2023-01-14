@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -131,7 +132,8 @@ const Logo = styled.div`
   }
 `;
 
-const Item = styled.div`
+const Navlink = styled(NavLink)`
+  text-decoration: none;
   @media only screen and (max-width: 992px) {
     display: flex;
     align-items: flex-start;
@@ -154,8 +156,8 @@ const Item = styled.div`
   justify-content: right;
   align-items: center;
   gap: 10px;
-  :active{
-color: red !important;
+  :active {
+    color: red !important;
   }
   .item {
     background-color: #fff;
@@ -263,4 +265,4 @@ const Link = styled.div`
     padding: 0;
   }
 `;
-export { Container, Button, Logo, Item, Main, Login, Link };
+export { Container, Button, Logo, Navlink, Main, Login, Link };

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Home from "../Components/Home";
 import JobSearch from "../Components/JobSearch";
@@ -13,7 +13,6 @@ import { Jobseeker } from "../pages/Jobseeker";
 
 export const App = () => {
   const [searchText, setSearchText] = useState();
-  const location = useLocation();
   const [posts, setPosts] = useState([]);
   const apiEndPoint = "https://jsonplaceholder.typicode.com/users";
   useEffect(() => {
@@ -24,16 +23,10 @@ export const App = () => {
     getPost();
   }, []);
 
-
-  const [curr, setCurr] = useState();
-  useEffect(() => {
-    setCurr(location.pathname.split("/")[1]);
-  }, [location.pathname]);
-  console.log(location);
   return (
     <>
       <Routes>
-        <Route element={<Navbar curr={curr} />}>
+        <Route element={<Navbar />}>
           <Route
             path="/search"
             element={
@@ -58,10 +51,10 @@ export const App = () => {
             }
           />
           <Route path="/search/jobseeker" element={<Jobseeker />} />
-          <Route path={`/${curr}/prices`} element={<Prices />} />
-          <Route path={`/${curr}/real `} element={<RealResults />} />
-          <Route path={`/${curr}/Signup`} element={<Signup />} />
-          <Route path={`/${curr}/Login`} element={<Login />} />
+          <Route path={`/prices`} element={<Prices />} />
+          <Route path={`/real`} element={<RealResults />} />
+          <Route path={`/Signup`} element={<Signup />} />
+          <Route path={`/Login`} element={<Login />} />
           <Route path="*" element={<h1>404 NOT FOUND</h1>} />
           <Route path="/" element={<Navigate to={"/home"} />} />
         </Route>
