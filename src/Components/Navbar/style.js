@@ -10,9 +10,7 @@ const Container = styled.div`
     margin: 10px auto;
     padding-bottom: ${({ showInfo }) => showInfo && "280px"};
   }
-  .fatime {
-    display: none;
-  }
+  
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -33,6 +31,7 @@ const Container = styled.div`
       flex-direction: column;
       width: min-content;
     }
+   
   }
 
   @media only screen and (max-width: 600px) {
@@ -60,20 +59,19 @@ const Main = styled.div`
     align-items: flex-start;
     background-color: white;
     width: 30%;
-    left: 110px;
-    top: 60px;
-    .fatime {
-      display: block;
-    }
+    left: 7%;
+    top: 55px;
+    
+   
   }
 
-  width: 80%;
+  width: 89%;
   display: flex;
   justify-content: right;
   text-align: center;
   padding: 0.1rem 13px;
   /* margin-left: 15%; */
-  gap: 10px;
+  gap: 5px;
   align-items: center;
 
   .not {
@@ -155,7 +153,7 @@ const Navlink = styled(NavLink)`
   display: flex;
   justify-content: right;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   :active {
     color: red !important;
   }
@@ -209,13 +207,13 @@ const Navlink = styled(NavLink)`
       background-color: #0069d9;
     }
     @media only screen and (max-width: 992px) {
-      font-size: 13px;
+      font-size: 14px;
       background-color: white;
       color: #585858 !important;
       :hover {
         background-color: white;
       }
-      width: 75px;
+      width: 81px;
       margin-bottom: -15px;
     }
     @media only screen and (max-width: 1200px) {
@@ -261,7 +259,7 @@ const Link = styled.div`
     gap: 5px;
   }
   @media (max-width: 992px) {
-    margin: 0 1.5px;
+    margin: -1px 1.5px;
     padding: 0;
   }
 `;

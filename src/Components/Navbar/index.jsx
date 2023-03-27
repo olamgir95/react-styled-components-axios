@@ -4,9 +4,9 @@ import blue from "../../asset/imgs/blue.png";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { dataNavbar } from "./data";
 import Select from "./Select";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars,  } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({searchText, setSearchText}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [showInfo, setShowInfo] = useState(false);
@@ -88,7 +88,7 @@ const Navbar = () => {
           >
             <Link>LOG IN</Link>
           </Navlink>
-          <FaTimes className="fatime" onClick={() => setShowInfo(!showInfo)} />
+          
         </Main>
         <FaBars className="faBar" onClick={() => setShowInfo(!showInfo)} />
       </Container>

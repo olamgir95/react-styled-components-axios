@@ -29,6 +29,7 @@ const JobSearch = ({ searchText, setSearchText, posts, setPosts }) => {
     setTimeout(() => {
       setState(posts);
     }, 3000);
+    
   });
   return (
     <Container>
